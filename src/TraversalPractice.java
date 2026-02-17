@@ -50,9 +50,9 @@ public class TraversalPractice {
     if (node == null) {
       return 0;
     }
-    int leftCount = countNodes(node.left);
-    int rightCount = countNodes(node.right);
-    int overallCount = leftCount + rightCount + 1;
+    int leftCount = treeSum(node.left);
+    int rightCount = treeSum(node.right);
+    int overallCount = leftCount + rightCount + node.value;
 
     return overallCount;
   }
