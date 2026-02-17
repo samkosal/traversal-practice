@@ -29,7 +29,9 @@ public class TraversalPractice {
       return;
     }
     // print value
-    System.out.println(node.value);
+    if ((node.left == null && node.right != null) || (node.right == null && node.left != null)) {
+      System.out.println(node.value);
+    }
     // traverse left
     printNodesWithOneChild(node.left);
     // traverse right
@@ -45,7 +47,14 @@ public class TraversalPractice {
    * @return the sum 
    */
   public static int treeSum(Node<Integer> node) {
-    return 0;
+    if (node == null) {
+      return 0;
+    }
+    int leftCount = treeSum(node.left);
+    int rightCount = treeSum(node.right);
+    int overallCount = leftCount + rightCount + node.value;
+
+    return overallCount;
   }
 
   /**
@@ -58,6 +67,19 @@ public class TraversalPractice {
    * @return the max value
    */
   public static int maxVal(Node<Integer> node) {
+    if (node == null) return 0;
+
+
+    maxVal(node.left);
+    maxVal(node.right);
+    if (node.left.value > node.value) {
+      return maxVal(node.left) + maxVal(node.right) + node.left.value;
+    } 
+        if (node.left.value > node.value) {
+          return maxVal(node.left) + maxVal(node.right) + node.right.value;
+    } 
+
+
     return 0;
   }
 
