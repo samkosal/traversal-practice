@@ -77,6 +77,7 @@ public class TraversalPractice {
       return maxVal(node.right);
     }
     return node.value;
+
   }
 
   /**
@@ -92,18 +93,21 @@ public class TraversalPractice {
     if (node == null) {
       return 0;
     }
-    // if node.left is greather than node.right
-      // numlevels(node.left)
-    // if node.right si greater than node.left 
-      // numlevels(node.right)
-    //return numlevels(node.left) + numlevels(node.left) + 1
-    
+
+    if (1 + numLevels(node.left) > 1 + numLevels(node.right)){
+      return 1 + numLevels(node.left);
+    }
+    if (1 + numLevels(node.left) < 1 + numLevels(node.right)){
+      return 1 + numLevels(node.right);
+    }
+
+    return 1;
   }
 
   public static void main(String[] args) {
     /*
      *         99
-     *       /    \   
+     *       /    \
      *     45      82
      *    /  \        \
      *   9   5       16
