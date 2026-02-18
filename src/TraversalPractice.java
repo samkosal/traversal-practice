@@ -101,7 +101,7 @@ public class TraversalPractice {
       return 1 + numLevels(node.right);
     }
 
-    return 1;
+    return numLevels(node.left) + 1;
   }
 
   public static void main(String[] args) {
